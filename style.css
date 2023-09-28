@@ -1,7 +1,11 @@
 
     * {
-		background-color: blanchedalmond;
-        font-family: 'Fredoka';
+		background: repeating-linear-gradient(yellow lightgreen blue);
+		background: -webkit-repeating-linear-gradient(yellow lightgreen blue);
+		background: -o-repeating-linear-gradient(yellow lightgreen blue);
+		background: -moz-repeating-linear-gradient(yellow lightgreen blue);
+		background: repeating;
+		font-family: 'Trechbucket MS', sans-serif;
 		font-style: normal;
 		color: black;
 	}
