@@ -79,21 +79,17 @@
     </div>
 
     <script>
-      // Function to open the HTML file
       function openFile() {
-        window.open("path/to/your/file.html", "_blank");
+        window.open("/home.html", "_blank");
       }
 
-      // Wait for the animation to finish
       setTimeout(function () {
-        // Attempt to open the HTML file
         try {
           openFile();
         } catch (error) {
-          // If there's an error, display an alert
           alert("Error: Unable to open file.");
         }
-      }, 1500); // Adjust the delay to match the duration of your animation
+      }, 1500);
     </script>
   </body>
 </html>
