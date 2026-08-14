@@ -1,33 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage | Ranuka Dinsitha</title>
-  </head>
-  <body>
+    <title>Ranuka</title>
+  
+    <link rel="icon" type="image/x-icon" href="https://github.com/RanukaDinsitha/Quickly/raw/refs/heads/main/person">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap"
-      rel="stylesheet"
-    />
-    <main>
-      <div>
-        <h1>Hello, welcome to my site!</h1>
-        <h3>
-          Nice to meet you! :D my name is Ranuka Dinsitha and this is my site.
-        </h3>
-      </div>
-      <!-- TODO:  Remember to fix the CSS not working!-->
-      <style>
-        .h1 {
-          font-family: "Ubuntu Sans Mono", monospace;
-          font-optical-sizing: auto;
-          font-weight: 10;
-          font-style: normal;
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/3.9.1/tsparticles.bundle.min.js" integrity="sha512-LGuO2AmmzgQ9Y2878Olrq8Om4F1EZLJRL6s3Y1XyJLCqRMe1435MnoVybPMnFC+ZwY9CSSj1rLlRcEVYG+MvVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
         }
-      </style>
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: "Ubuntu Sans Mono", monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; 
+        }
+
+        #tsparticles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1; 
+        }
+
+        main {
+            position: relative;
+            z-index: 2; 
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            pointer-events: none; 
+        }
+
+        h1, h3 {
+            pointer-events: auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        h1::after {
+            content: "_";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles"></div>
+
+    <main>
+        <div>
+            <h1>Hello, welcome to my site!</h1>
+            <h3>Nice to meet you! :D My name is Ranuka Dinsitha and this is my site.</h3>
+        </div>
     </main>
-  </body>
+
+    <script>
+        tsParticles.load("tsparticles", {
+            preset: "links",
+            background: {
+                color: {
+                    value: "transparent" 
+                }
+            },
+            particles: {
+                color: {
+                    value: "#38bdf8" 
+                },
+                links: {
+                    color: "#38bdf8", 
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.3,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5 
+                },
+                number: {
+                    value: 80 
+                },
+                opacity: {
+                    value: 0.6
+                },
+                size: {
+                    value: { min: 1, max: 3 }
+                }
+            },
+            interactivity: {
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "grab" 
+                    }
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        links: {
+                            opacity: 0.6
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
 </html>
