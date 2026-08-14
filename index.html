@@ -8,24 +8,24 @@
     <link rel="icon" type="image/x-icon" href="https://github.com/RanukaDinsitha/Quickly/raw/refs/heads/main/person">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">  
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/3.9.1/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.1.0/tsparticles.bundle.min.js"></script>
     
     <style>
         :root {
-            --bg-color: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-muted: #a1a1aa;
-            --gloss-highlight: rgba(255, 255, 255, 0.05);
+            --bg: #000000;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.12);
+            --text: #ffffff;
+            --muted: #999999;
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at center, #111 0%, #050505 100%);
-            color: var(--text-main);
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at center, #111 0%, #000 100%);
+            color: var(--text);
             font-family: "Inter", sans-serif;
             margin: 0;
             display: flex;
@@ -46,74 +46,69 @@
 
         main {
             position: relative;
-            z-index: 2; 
+            z-index: 10; 
             text-align: center;
-            padding: 3rem;
-            max-width: 500px;
-            width: 90%;
-            
-            /* Glossy Glassmorphism Effect */
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            
-            /* Glossy Shine Overlay */
-            overflow: hidden;
+            padding: 3.5rem;
+            max-width: 460px;
+            width: 85%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
         }
 
-        /* Diagonal Shine Reflection */
         main::before {
             content: "";
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 45%,
-                rgba(255, 255, 255, 0.03) 50%,
-                transparent 55%
-            );
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 32px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 40%);
             pointer-events: none;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-            letter-spacing: -0.04em;
-            /* Subtle glow for glossy look */
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.06em;
+            background: linear-gradient(180deg, #FFFFFF 0%, #AAAAAA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h3 {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 400;
-            color: var(--text-muted);
+            color: var(--muted);
             line-height: 1.6;
-            letter-spacing: -0.01em;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        b {
+            color: #fff;
+            font-weight: 600;
         }
 
         h1::after {
             content: "_";
             display: inline-block;
-            margin-left: 2px;
-            animation: blink 1s infinite;
-            color: #fff;
+            margin-left: 4px;
+            animation: blink 1.2s infinite;
+            -webkit-text-fill-color: #fff;
         }
 
         @keyframes blink {
+            0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        /* Clean selection color */
         ::selection {
-            background: rgba(255, 255, 255, 0.99);
+            background: #fff;
             color: #000;
         }
     </style>
@@ -128,49 +123,56 @@
 
     <script>
         tsParticles.load("tsparticles", {
-            fpsLimit: 60,
+            fpsLimit: 120,
             particles: {
-                number: { value: 60, density: { enable: true, value_area: 800 } },
+                number: {
+                    value: 80,
+                    density: { enable: true, area: 800 }
+                },
                 color: { value: "#ffffff" },
                 shape: { type: "circle" },
                 opacity: {
-                    value: 0.2,
+                    value: 0.4,
                     random: true,
-                    anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+                    animation: {
+                        enable: true,
+                        speed: 1,
+                        minimumValue: 0.1,
+                        sync: false
+                    }
                 },
                 size: {
-                    value: 2,
-                    random: true
+                    value: { min: 1, max: 2.5 }
                 },
                 links: {
                     enable: true,
                     distance: 150,
                     color: "#ffffff",
-                    opacity: 0.1,
+                    opacity: 0.2,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 0.8,
+                    speed: 1.2,
                     direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
+                    outModes: { default: "out" }
                 }
             },
             interactivity: {
-                detect_on: "canvas",
                 events: {
-                    onHover: { enable: true, mode: "grab" },
-                    onclick: { enable: true, mode: "push" },
-                    resize: true
+                    onHover: {
+                        enable: true,
+                        mode: "grab"
+                    }
                 },
                 modes: {
-                    grab: { distance: 200, links: { opacity: 0.4 } }
+                    grab: {
+                        distance: 200,
+                        links: { opacity: 0.5 }
+                    }
                 }
             },
-            retina_detect: true
+            detectRetina: true
         });
     </script>
 </body>
